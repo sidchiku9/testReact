@@ -1,14 +1,15 @@
 /* FileUploader.jsx */
 
 import React, { useState } from 'react';
-import { FaFileAlt } from 'react-icons/fa'; // Importing file icon from react-icons
-import { ProgressBar, Button } from 'react-bootstrap'; // Importing Bootstrap components
-import 'bootstrap/dist/css/bootstrap.min.css'; // Importing Bootstrap CSS
-import './FileUploader.css'; // Importing custom CSS
+import { FaFileAlt } from 'react-icons/fa';
+import { ProgressBar, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './FileUploader.css';
+import axios from 'axios'; // Import axios for making HTTP requests
 
 const FileUploader = () => {
-  const [files, setFiles] = useState([null, null]); // State to hold the uploaded files
-  const [uploadProgress, setUploadProgress] = useState(0); // State to hold upload progress
+  const [files, setFiles] = useState([null, null]);
+  const [uploadProgress, setUploadProgress] = useState(0);
 
   const handleFileChange = (e, index) => {
     const updatedFiles = [...files];
@@ -16,23 +17,39 @@ const FileUploader = () => {
     setFiles(updatedFiles);
   };
 
-  const handleUpload = () => {
-    if (!files[0] && !files[1]) {
-      alert("Please upload both files before proceeding.");
+  const handleUpload = async () => {
+    if (!files[0] || !files[1]) {
+      alert('Please upload both files before proceeding.');
       return;
     }
 
-    // Simulating file upload progress
-    let progress = 0;
-    const interval = setInterval(() => {
-      progress += 10;
-      setUploadProgress(progress);
+    const formData = new FormData();
+    formData.append('file1', files[0]);
+    formData.append('file2', files[1]);
 
-      if (progress >= 100) {
-        clearInterval(interval);
-        alert("Files uploaded successfully!");
+    try {
+      const response = await axios.post('https://httpbin.org/post', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        onUploadProgress: (progressEvent) => {
+          const progress = Math.round(
+            (progressEvent.loaded * 100) / progressEvent.total
+          );
+          setUploadProgress(progress);
+        },
+      });
+
+      if (response.status === 200) {
+        alert('Files uploaded successfully!');
+        console.log('Response:', response.data);
+      } else {
+        alert('Failed to upload files.');
       }
-    }, 500);
+    } catch (error) {
+      console.error('Upload error:', error);
+      alert('An error occurred while uploading files.');
+    }
   };
 
   return (
