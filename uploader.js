@@ -96,3 +96,52 @@ const FileUploader = () => {
 };
 
 export default FileUploader;
+
+
+
+
+/* TextWithBulletPoints.jsx */
+
+import React from 'react';
+import { Typography, List, ListItem, ListItemIcon, ListItemText, Container, Box } from '@mui/material';
+import { Circle } from '@mui/icons-material';
+
+const TextWithBulletPoints = () => {
+  return (
+    <Container maxWidth="md">
+      <Box sx={{ mt: 4, mb: 4 }}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          Understanding React Components
+        </Typography>
+
+        <Typography variant="body1" paragraph>
+          React components are the building blocks of any React application. They allow developers to split the UI into independent, reusable pieces that can be handled separately.
+          Here are some key points to consider when working with React components:
+        </Typography>
+
+        <List>
+          {[
+            'Components let you split the UI into independent, reusable pieces.',
+            'You can use JavaScript to build component logic, making it easier to handle dynamic data and UI updates.',
+            'Components can be class-based or functional, each with its own benefits and use cases.',
+            'React’s component-based architecture makes code more modular and easier to maintain.',
+          ].map((text, index) => (
+            <ListItem key={index}>
+              <ListItemIcon>
+                <Circle fontSize="small" />
+              </ListItemIcon>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+
+        <Typography variant="body2" color="textSecondary">
+          By understanding and utilizing components effectively, you can build powerful, maintainable, and scalable applications with React.
+        </Typography>
+      </Box>
+    </Container>
+  );
+};
+
+export default TextWithBulletPoints;
+
