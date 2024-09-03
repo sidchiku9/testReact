@@ -1,0 +1,58 @@
+/* Container for the list */
+.file-list {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+/* Individual file item styling */
+.file-item {
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Space out items evenly */
+  padding: 10px; /* Add some padding */
+  margin-bottom: 10px; /* Space between items */
+  background-color: #f8f9fa; /* Light grey background */
+  border: 1px solid #ddd; /* Light border around item */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Style for the checkbox */
+.file-checkbox {
+  margin-right: 10px; /* Space between checkbox and filename */
+}
+
+/* Style for the filename text */
+.file-name {
+  flex-grow: 1; /* Allow the filename to take up remaining space */
+  margin-right: 10px; /* Space between filename and buttons */
+  color: #333; /* Dark text color */
+  font-weight: 500; /* Medium font weight */
+}
+
+/* Style for the Go button */
+.go-button {
+  background-color: #007bff; /* Bootstrap primary blue */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+  padding: 5px 10px; /* Add padding inside the button */
+  border-radius: 3px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-right: 5px; /* Space between Go and remove button */
+}
+
+/* Style for the cross button */
+.remove-button {
+  background-color: #dc3545; /* Bootstrap danger red */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+  padding: 5px 10px; /* Add padding inside the button */
+  border-radius: 3px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Add hover effects for buttons */
+.go-button:hover,
+.remove-button:hover {
+  opacity: 0.8; /* Slightly reduce opacity on hover */
+}
