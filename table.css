@@ -1,0 +1,44 @@
+/* DataTable.css */
+
+/* Custom table style */
+.custom-table {
+  background-color: #f9f9f9; /* Light grey background for the table */
+  border-radius: 8px; /* Rounded corners for the table */
+}
+
+/* Highlight row on checkbox selection */
+.highlight-row {
+  background-color: #e0f7fa; /* Light blue background for highlighted row */
+  transition: background-color 0.3s ease; /* Smooth transition effect */
+}
+
+/* Add hover effect for table rows */
+tbody tr:hover {
+  background-color: #f1f1f1; /* Light grey on hover */
+  transition: background-color 0.2s ease; /* Smooth transition effect */
+}
+
+/* Custom header style */
+.table thead th {
+  background-color: #007bff; /* Bootstrap primary blue */
+  color: white; /* White text color */
+  text-align: center; /* Center align header text */
+  border: none; /* Remove border from header */
+}
+
+/* Style for table cells */
+.table td {
+  vertical-align: middle; /* Center align vertically */
+  padding: 15px; /* Add padding to cells */
+}
+
+/* Checkbox column */
+.table td:first-child {
+  text-align: center; /* Center align checkbox */
+}
+
+/* GitLab ID column */
+.table td:nth-child(2) {
+  font-weight: bold; /* Bold font for GitLab ID */
+  color: #007bff; /* Bootstrap primary blue color */
+}
