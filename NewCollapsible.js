@@ -6,6 +6,7 @@ import { FaChevronRight, FaChevronDown } from 'react-icons/fa'; // Import icons
 const Accordion = () => {
   const [openSection, setOpenSection] = useState(null);
 
+  // Toggle the state only when necessary
   const handleToggle = (section) => {
     setOpenSection(openSection === section ? null : section);
   };
@@ -14,8 +15,8 @@ const Accordion = () => {
     <div className="accordion-container">
       <Collapsible
         open={openSection === 1}
-        onOpening={() => handleToggle(1)}
-        onClosing={() => handleToggle(1)}
+        onTriggerOpening={() => handleToggle(1)}
+        onTriggerClosing={() => handleToggle(1)}
         transitionTime={300}
         trigger={
           <div className="header">
@@ -31,8 +32,8 @@ const Accordion = () => {
       </Collapsible>
       <Collapsible
         open={openSection === 2}
-        onOpening={() => handleToggle(2)}
-        onClosing={() => handleToggle(2)}
+        onTriggerOpening={() => handleToggle(2)}
+        onTriggerClosing={() => handleToggle(2)}
         transitionTime={300}
         trigger={
           <div className="header">
@@ -48,8 +49,8 @@ const Accordion = () => {
       </Collapsible>
       <Collapsible
         open={openSection === 3}
-        onOpening={() => handleToggle(3)}
-        onClosing={() => handleToggle(3)}
+        onTriggerOpening={() => handleToggle(3)}
+        onTriggerClosing={() => handleToggle(3)}
         transitionTime={300}
         trigger={
           <div className="header">
@@ -68,6 +69,7 @@ const Accordion = () => {
 };
 
 export default Accordion;
+
 
 
 .accordion-container {
