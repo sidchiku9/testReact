@@ -1,49 +1,3 @@
-.accordion-container {
-  display: flex; /* Use flexbox for horizontal layout */
-  width: 100%; /* Full width */
-  height: 100vh; /* Full viewport height */
-  overflow: hidden; /* Hide overflow */
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  background-color: #333;
-  color: #fff;
-  cursor: pointer;
-  white-space: nowrap; /* Prevent text wrapping */
-}
-
-.header span {
-  margin-left: 10px;
-}
-
-.content {
-  flex: 1; /* Flex-grow to fill space */
-  transition: flex-basis 0.3s ease, opacity 0.3s ease; /* Smooth transition */
-  overflow: hidden; /* Hide overflow content */
-  display: flex;
-  align-items: center;
-  background-color: #f1f1f1;
-  opacity: 0; /* Hidden by default */
-}
-
-.content-inner {
-  padding: 20px;
-}
-
-.content.expanded {
-  flex-basis: 100%; /* Full width when expanded */
-  opacity: 1; /* Visible when expanded */
-}
-
-.content.collapsed {
-  flex-basis: 0; /* Collapsed width */
-  opacity: 0; /* Hidden when collapsed */
-  pointer-events: none; /* Disable pointer events */
-}
-
 import React, { useState } from 'react';
 import Collapsible from 'react-collapsible';
 import './Accordion.css'; // Import CSS
@@ -114,3 +68,51 @@ const Accordion = () => {
 };
 
 export default Accordion;
+
+
+.accordion-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.header span {
+  margin-left: 10px;
+}
+
+.content {
+  flex: 1;
+  transition: flex-basis 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: #f1f1f1;
+  opacity: 0;
+}
+
+.content-inner {
+  padding: 20px;
+}
+
+.content.expanded {
+  flex-basis: 100%;
+  opacity: 1;
+}
+
+.content.collapsed {
+  flex-basis: 0;
+  opacity: 0;
+  pointer-events: none;
+}
